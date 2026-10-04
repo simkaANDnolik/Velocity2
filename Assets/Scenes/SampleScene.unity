@@ -6858,8 +6858,8 @@ MonoBehaviour:
   maxSlopeAngle: 60
   minSlopeAngle: 5
   slideCooldown: 0
-  slopeSlideSpeedMultiplier: 10
   slopeSlideAcceleration: 160
+  slopeSlideMaxSpeed: 10000
   wallCheckDistance: 0.7
   wallJumpHeightMultiplier: 0.5
   wallJumpSpeedMultiplier: 2.5
@@ -8243,36 +8243,12 @@ MonoBehaviour:
   maxSlopeAngle: 60
   minSlopeAngle: 5
   slideCooldown: 0
-  slopeSlideSpeedMultiplier: 10
   slopeSlideAcceleration: 160
+  slopeSlideMaxSpeed: 10000
   wallCheckDistance: 0.7
   wallJumpHeightMultiplier: 0.5
   wallJumpSpeedMultiplier: 2.5
   wallJumpCooldown: 0.05
-  wallLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  wallSidePush: 0.6
-  wallJumpForwardPush: 1.2
-  wallJumpImpulseDuration: 0.3
-  jumpHeight: 6
-  jumpKey: 32
-  slideKey: 306
-  slideInitialBoost: 1
-  slideMinSpeed: 20
-  slideFriction: 4
-  flatFriction: 2
-  flatSlideMinSpeed: 8
-  slopeStickForce: 70
-  maxSlopeAngle: 60
-  minSlopeAngle: 5
-  slideCooldown: 0
-  slopeSlideSpeedMultiplier: 10
-  slopeSlideAcceleration: 50
-  wallCheckDistance: 0.7
-  wallJumpHeightMultiplier: 0.5
-  wallJumpSpeedMultiplier: 2.5
-  wallJumpCooldown: 0.2
   wallLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -19528,7 +19504,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2552614858479271518, guid: 0efcc68599518b543b1d5bd50202a32d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 478.04343
+      value: 472
       objectReference: {fileID: 0}
     - target: {fileID: 2552614858479271518, guid: 0efcc68599518b543b1d5bd50202a32d, type: 3}
       propertyPath: m_LocalPosition.y
