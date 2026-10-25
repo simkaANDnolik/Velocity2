@@ -20,7 +20,7 @@ public class SwitchCharacters : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.N))
+        if(Input.GetKeyDown(KeyCode.H))
         {
             if (svitch == 0)
             {

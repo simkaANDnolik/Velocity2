@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using TMPro;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -25,9 +26,9 @@ public class PlayerController : MonoBehaviour
     public float slideInitialBoost = 3f;
     public float slideMinSpeed = 20f;
     public float slideFriction = 4f;
-    public float flatFriction = 2f;
+    public float flatFriction = 10f;
     public float flatSlideMinSpeed = 8f;
-    public float slopeStickForce = 35f;
+    public float slopeStickForce = 35;
     public float maxSlopeAngle = 60f;
     public float minSlopeAngle = 5f;
     public float slideCooldown = 0.3f;
@@ -50,7 +51,7 @@ public class PlayerController : MonoBehaviour
     private float slideCooldownTimer;
     private Vector3 slideDirection;
     private float currentSlideSpeed;
-    private bool onSlope;
+    private bool onSlope = true;
     private Vector3 slopeNormal = Vector3.up;
 
     // Wall jump
@@ -70,6 +71,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 characterCenter;
 
     private CharacterController controller;
+
+    public TextMeshProUGUI TextSpeed;
 
     void Start()
     {
@@ -147,6 +150,9 @@ public class PlayerController : MonoBehaviour
             rotation.x = Math.Clamp(rotation.x - mouseDelta.y, -90, 90);
             camera.transform.localEulerAngles = rotation;
         }
+
+        TextSpeed.text = controller.velocity.ToString();
+        
     }
 
     private void CheckGround()
@@ -259,11 +265,12 @@ public class PlayerController : MonoBehaviour
             StartSlide();
         }
 
-        // Конец — когда отпустил кнопку
-        if (isSliding && !slideHeld)
+        // Конец — когда отпустил кнопку ИЛИ скорость слишком мала на ровной поверхности
+        if (isSliding && (!slideHeld || (!onSlope && currentSlideSpeed < 24f)))
         {
             StopSlide();
         }
+        
     }
 
     private void StartSlide()
